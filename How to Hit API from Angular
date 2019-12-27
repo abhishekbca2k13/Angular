@@ -1,0 +1,42 @@
+Hit API
+//.services.ts file code
+				//API adress
+apiUrl:string='http://localhost:59079/api/values/';
+
+constructor(private httpClient:HttpClient) { }
+
+//Get all user from values controller
+	public getAllUsers(url?:string){   
+		return this.httpClient.get<User[]>(this.apiUrl);
+	}
+
+//get user by id from value controller
+	public getUserById(id:number){
+		return this.httpClient.get<User>(this.apiUrl+id);
+	}
+
+//send user data to api 
+	public createUser(user:User){
+		return this.httpClient.post(this.apiUrl+"createUser",user);
+	}
+
+//.component.ts file code
+constructor(private apiService:ApiserviceService){}
+
+//get user by id //pass id to get detail of particular user
+    this.apiService.getUserById(this.id).subscribe((res)=>{
+      this.user=res;
+      console.log(res);
+    })
+
+//get all users
+        this.apiService.getAllUsers().subscribe((res)=>{
+          this.users=res;
+          //console.log(res);
+        });
+//Create user
+	this.apiService.createUser(this.user).subscribe((res)=>{  
+      this.createdUser=res;
+      console.log("User Registered");
+      console.log(res);
+    })		
