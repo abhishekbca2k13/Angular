@@ -1,0 +1,13 @@
+Read text from Json/Text
+
+//.component.ts file code
+
+constructure(private http:Http){}
+
+//Read text from file
+	getUrl() {   
+		this.http.get('filepath.txt/json').subscribe(data => {
+			this.jsonData=JSON.parse(data.text());
+			console.log(jsonData);
+		})
+	}
