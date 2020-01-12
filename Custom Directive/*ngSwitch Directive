@@ -1,0 +1,12 @@
+*ngSwitch Directive
+
+export class {
+  vaule;
+}
+
+    <div [ngSwitch]="value">
+      <p *ngSwitchCase="yourValue1">value is yourValue1</p>
+      <p *ngSwitchCase="yourValue2">value is yourValue2</p>
+      <p *ngSwitchCase="yourValue3">value is yourValue3</p>
+      <p *ngSwitchDefault>value is Default</p>
+    </div>
