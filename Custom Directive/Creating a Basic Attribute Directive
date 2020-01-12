@@ -1,0 +1,30 @@
+creating a basic attribute directive
+Create a folder and file in it as name.directive.ts in app folder then write the following code in it
+
+import { Directive, ElementRef, OnInit } from '@angular/core';
+
+@Directive({
+    selector:'[appBasicHighLight]'
+})
+export class HighLightDirective implements OnInit{
+    constructor(private elementRef:ElementRef){}
+
+    ngOnInit(){
+        this.elementRef.nativeElement.style.backgroundColor='green';
+    }
+
+}
+
+Now inform the angular that we have a directive by writeing the following code in app.module.ts file
+
+import { HighLightDirective } from './basic-highlight/basic-highlight.directive'
+@NgModule({
+  declarations: [
+    AppComponent,
+    HighLightDirective
+  ],
+})
+
+Now use your directive
+
+<P appBasicHighLight>Style me with your basic directive</P>
