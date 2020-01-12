@@ -1,0 +1,28 @@
+Using HostListener to Listen to Host Events	
+
+import { Directive, Renderer, OnInit, ElementRef, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[appBetterDirective]'
+})
+export class BetterDirectiveDirective implements OnInit {
+
+  constructor(private elementRef:ElementRef,private renderer:Renderer) { }
+
+  ngOnInit(){
+  }
+
+  @HostListener('mouseenter') mouseover(elemetData:Event){
+    this.renderer.setElementStyle(this.elementRef.nativeElement,'backgroundColor','blue')
+
+  }
+  @HostListener('mouseleave') mouseleave(elemetData:Event){
+    this.renderer.setElementStyle(this.elementRef.nativeElement,'backgroundColor','red')
+
+  }
+
+}
+
+Now use your directive
+
+<P appBasicHighLight>Style me with your basic directive</P>
