@@ -1,0 +1,25 @@
+Using HostBinding to Bind to Host Properties
+
+import { Directive, Renderer, OnInit, ElementRef, HostListener, HostBinding } from '@angular/core';
+
+@Directive({
+  selector: '[appBetterDirective]'
+})
+export class BetterDirectiveDirective implements OnInit {
+  @HostBinding('style.backgroundColor') backgroundColor:string="pink";
+
+  constructor(private elementRef:ElementRef,private renderer:Renderer) { }
+
+  ngOnInit(){
+  }
+
+  @HostListener('mouseenter') mouseover(elemetData:Event){
+    this.backgroundColor='yellow';
+
+  }
+  @HostListener('mouseleave') mouseleave(elemetData:Event){
+    this.backgroundColor='black';
+
+  }
+
+}
