@@ -1,0 +1,25 @@
+Using the Renderer to build a Better Attribute Directive
+
+use the following command to create a directive
+	ng g d better-high-light
+
+now write the following code in better-high-light.directive.ts file
+
+import { Directive, Renderer, OnInit, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[appBetterDirective]'
+})
+export class BetterDirectiveDirective implements OnInit {
+
+  constructor(private elementRef:ElementRef,private renderer:Renderer) { }
+
+  ngOnInit(){
+    this.renderer.setElementStyle(this.elementRef.nativeElement,'backgroundColor','blue')
+  }
+
+}
+
+now you can use your better directive
+
+<p appBetterDirective>use of better-high-light directive using renderer<p/>
