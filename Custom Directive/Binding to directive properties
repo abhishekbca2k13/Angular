@@ -1,0 +1,29 @@
+Binding to directive properties
+import { Directive, Renderer, OnInit, ElementRef, HostListener, HostBinding, Input } from '@angular/core';
+
+@Directive({
+  selector: '[appBetterDirective]'
+})
+export class BetterDirectiveDirective implements OnInit {
+  @Input() defaultHighlight:string='blue';
+  @Input() basicHighlight:string='pink';
+  @HostBinding('style.backgroundColor') backgroundColor:string="pink";
+
+  constructor(private elementRef:ElementRef,private renderer:Renderer) { }
+
+  ngOnInit(){
+    this.backgroundColor=this.defaultHighlight;
+  }
+
+  @HostListener('mouseenter') mouseover(elemetData:Event){
+    this.backgroundColor=this.basicHighlight;
+
+  }
+  @HostListener('mouseleave') mouseleave(elemetData:Event){
+    this.backgroundColor=this.defaultHighlight;
+  }
+
+}
+
+now use your directive
+<p appBetterDirective [defaultHighlight]="'black'" [basicHighlight]="'green'">THIS IS USER DECLARED DIRECTIVE TEST</p>
