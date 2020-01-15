@@ -1,0 +1,56 @@
+Services:
+To create a service, we need to make use of the command line. The command to create a service is
+	ng g service serviceName
+
+Following are the files created in app folder after executing the above command as- 	
+	serviceName.service.specs.ts
+	serviceName.service.ts.
+
+In serviceName.service.ts file
+	import { Injectable } from '@angular/core';
+	@Injectable()
+	export class MyserviceService {
+  		constructor() { }
+	}
+Here, the Injectable module is imported from the @angular/core. It contains the @Injectable method and a class called MyserviceService. We will create our service function in this class.
+
+Before creating a new service, we need to include the service created in the main parent app.module.ts.
+	import { MyserviceService } from './myservice.service';
+	providers: [MyserviceService],
+
+Let us now see how the function looks in the service and how to use it in components.
+
+	import { Injectable } from '@angular/core';
+	@Injectable()
+	export class MyserviceService {
+   		constructor() { }
+ 		showTodayDate() {
+      			let ndate = new Date();
+      			return ndate;
+   		}
+	}
+
+In the above service file, we have created a function showTodayDate. Now we will return the new Date () created. Let us see how we can access this function in the component class.
+
+	import { Component } from '@angular/core';
+	import { MyserviceService } from './myservice.service';
+	
+	@Component({
+  		selector: 'app-root',
+   		templateUrl: './app.component.html',
+   		styleUrls: ['./app.component.css']
+	})
+	export class AppComponent {
+  		title = 'Angular 6 Project!';
+   		todaydate;
+   		constructor(private myservice: MyserviceService) {}
+ 		ngOnInit() {
+      			this.todaydate = this.myservice.showTodayDate();
+   		}
+	}
+
+The ngOnInit function gets called by default in any component created. The date is fetched from the service as shown above. To fetch more details of the service, we need to first include the service in the component ts file.
+
+We will display the date in the .html file as shown below −
+	{{todaydate}}
+
