@@ -1,0 +1,5 @@
+		1: Install Nodejs using the following command
+			apt-get install nodejs
+	
+		2: Install the angular CLI using the following command
+			npm install -g  @angular/cli
