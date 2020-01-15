@@ -5,3 +5,35 @@ Simple form with expanded syntax:
 	<ng-template [ngIf]="condition">
 		<div>Content to render when condition is true.</div>
 	</ng-template>
+
+Form with an "else" block:
+	<div *ngIf="condition; else elseBlock">
+		Content to render when condition is true.
+	</div>
+	<ng-template #elseBlock>
+		Content to render when condition is false.
+	</ng-template>
+
+Shorthand form with "then" and "else" blocks:
+	<div *ngIf="condition; then thenBlock else elseBlock"></div>
+	<ng-template #thenBlock>Content to render when condition is true.</ng-template>
+	<ng-template #elseBlock>Content to render when condition is false.</ng-template>
+
+Form with storing the value locally:
+	<div *ngIf="condition as value; else elseBlock">
+		{{value}}
+	</div>
+	<ng-template #elseBlock>
+		Content to render when value is null.
+	</ng-template>
+
+The *ngIf directive is most commonly used to conditionally show an inline template,
+
+	<ng-template [ngIf]="hero-list" [ngIfElse]="loading">
+ 		<div class="hero-list">
+			  ...
+		 </div>
+	</ng-template>
+	<ng-template #loading>
+		 <div>Loading...</div>
+	</ng-template>
