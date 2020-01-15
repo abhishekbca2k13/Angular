@@ -1,0 +1,7 @@
+Simple form with shorthand syntax:
+	<div *ngIf="condition">Content to render when condition is true.</div>
+
+Simple form with expanded syntax:
+	<ng-template [ngIf]="condition">
+		<div>Content to render when condition is true.</div>
+	</ng-template>
