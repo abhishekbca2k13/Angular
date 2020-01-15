@@ -1,5 +1,30 @@
+Setup of Angular:
 		1: Install Nodejs using the following command
 			apt-get install nodejs
 	
 		2: Install the angular CLI using the following command
 			npm install -g  @angular/cli
+			
+Startup Angular:
+
+	Creating Project:
+		
+		1: Create project using the following command
+				ng new angularProjectName
+
+		2: Install bootstrap framework on your project using this command in your project 		     directory
+				npm install bootstrap –save
+		
+			Now, add the following code inside the angular.json file
+				“Styles”:[
+					“src/style.css”,
+					“./node_modules/bootstrap/dist/css/bootstrap.min.css”		
+					],	
+	Bulding and Executing:
+			
+		1: To Bulid the project
+			ng serve
+
+		2: To Build the project and start the server
+			ng serve -o
+
