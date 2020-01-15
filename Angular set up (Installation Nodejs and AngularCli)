@@ -12,7 +12,7 @@ Startup Angular:
 		1: Create project using the following command
 				ng new angularProjectName
 
-		2: Install bootstrap framework on your project using this command in your project 		     directory
+		2: Install bootstrap framework on your project using this command in your project directory
 				npm install bootstrap –save
 		
 			Now, add the following code inside the angular.json file
