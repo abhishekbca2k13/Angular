@@ -16,3 +16,6 @@ The router enables navigation from one view to the next as users perform tasks o
      				 ])
   			 ],
 		})
+
+we need to add the router details in the app.component.html.
+	<a routerLink = "new-cmp">New component</a>
