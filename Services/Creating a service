@@ -1,0 +1,31 @@
+Use the following cli command to generate a sercice class
+  ng g service yourServiceName
+  
+service.ts file code
+
+  export class YourServiceNameService{
+    yourServiceFunction(){
+        console.log('This is your service method');
+    }   
+  }
+  
+Now use your servoce
+component.ts file code
+
+import { Component} from '@angular/core';
+import { YourServiceNameService } from '../yourServiceName.service';;
+
+@Component({
+  selector: 'app-new-account',
+  templateUrl: './your-component.component.html',
+  styleUrls: ['./your-component.component.css'],
+  providers:[YourServiceNameService]
+})
+export class YourComponent {
+
+  constructor(private yourService:YourServiceNameService){}
+    this.yourService.yourServiceFunction();
+    
+  }
+}
+ 
